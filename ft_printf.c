@@ -6,13 +6,12 @@
 /*   By: pngamcha <pngamcha@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 14:39:35 by pngamcha          #+#    #+#             */
-/*   Updated: 2022/03/11 02:05:01 by pngamcha         ###   ########.fr       */
+/*   Updated: 2022/03/11 15:51:39 by pngamcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 #include "libft/libft.h"
-#include <stdio.h>
 
 static int	ft_eval_format(t_print *tab, const char *format, int i)
 {
@@ -81,4 +80,11 @@ int	ft_printf(const char *format, ...)
 	ret = ft_finalize(tab , ret);
 	return (ret);
 }
-
+/*
+int	main(void)
+{
+	ft_printf("%p", (void *)-1);
+	ft_printf("\n");
+	printf("This %p is even stranger", (void *)-1);
+}
+*/
