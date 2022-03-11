@@ -6,12 +6,12 @@
 /*   By: pngamcha <pngamcha@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 14:39:35 by pngamcha          #+#    #+#             */
-/*   Updated: 2022/03/11 15:51:39 by pngamcha         ###   ########.fr       */
+/*   Updated: 2022/03/11 17:22:20 by pngamcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
-#include "libft/libft.h"
+#include "../includes/ft_printf.h"
+#include "../libft/libft.h"
 
 static int	ft_eval_format(t_print *tab, const char *format, int i)
 {

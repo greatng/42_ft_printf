@@ -6,11 +6,11 @@
 /*   By: pngamcha <pngamcha@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 22:10:23 by pngamcha          #+#    #+#             */
-/*   Updated: 2022/03/11 15:49:29 by pngamcha         ###   ########.fr       */
+/*   Updated: 2022/03/11 17:22:15 by pngamcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "../libft/libft.h"
 
 static	char	*ft_tostring(char *str, int i, long long n)
 {

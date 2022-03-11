@@ -6,12 +6,12 @@
 /*   By: pngamcha <pngamcha@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 18:59:26 by pngamcha          #+#    #+#             */
-/*   Updated: 2022/03/11 13:19:21 by pngamcha         ###   ########.fr       */
+/*   Updated: 2022/03/11 17:22:03 by pngamcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
-#include "libft/libft.h"
+#include "../includes/ft_printf.h"
+#include "../libft/libft.h"
 
 int	ft_print_c(t_print *tab)
 {
