@@ -6,7 +6,7 @@
 /*   By: pngamcha <pngamcha@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 18:59:26 by pngamcha          #+#    #+#             */
-/*   Updated: 2022/03/11 17:22:03 by pngamcha         ###   ########.fr       */
+/*   Updated: 2022/03/11 18:01:33 by pngamcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int	ft_print_c(t_print *tab)
 {
 	int	c;
+
 	c = va_arg(tab->args, int);
 	ft_putchar_fd(c, 1);
 	return (1);
@@ -24,24 +25,25 @@ int	ft_print_c(t_print *tab)
 int	ft_print_s(t_print *tab)
 {
 	char	*s;
+
 	s = va_arg(tab->args, char *);
 	if (s)
 	{
 		ft_putstr_fd(s, 1);
 		return (ft_strlen(s));
-	} else
+	}
+	else
 	{
 		ft_putstr_fd("(null)", 1);
 		return (6);
 	}
-	tab->error = 1;
 	return (0);
 }
 
 int	ft_print_nb(t_print *tab)
 {
-	int	nb;
-	int	ret;
+	int		nb;
+	int		ret;
 	char	*s;
 
 	nb = va_arg(tab->args, int);
@@ -49,15 +51,14 @@ int	ft_print_nb(t_print *tab)
 	s = ft_itoa(nb);
 	ret = ft_strlen(s);
 	free (s);
-	
 	return (ret);
 }
 
 int	ft_print_u(t_print *tab)
 {
 	unsigned int	u;
-	char	*s;
-	int	len;
+	char			*s;
+	int				len;
 
 	u = va_arg(tab->args, unsigned int);
 	s = ft_utoa(u);

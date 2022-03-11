@@ -6,7 +6,7 @@
 /*   By: pngamcha <pngamcha@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 22:10:23 by pngamcha          #+#    #+#             */
-/*   Updated: 2022/03/11 17:22:15 by pngamcha         ###   ########.fr       */
+/*   Updated: 2022/03/11 18:06:18 by pngamcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ static	size_t	ft_checklength(long long n)
 
 char	*ft_utoa(long long n)
 {
+	long long	nbr;
 	size_t		size;
 	int			neg;
 	char		*str;
-	long long int	nbr;
 	size_t		i;
 
 	neg = 0;
@@ -74,12 +74,12 @@ char	*ft_utoa(long long n)
 	return (ft_tostring(str, i, nbr));
 }
 
-int    ft_print_base(unsigned int nbr, char *base, int basenb)
+int	ft_print_base(unsigned int nbr, char *base, int basenb)
 {
-	char    temp;
-	int	len;
-	unsigned long 	div;
-	unsigned long 	mod;
+	unsigned long	div;
+	unsigned long	mod;
+	char			temp;
+	int				len;
 
 	len = 0;
 	if (nbr < 0)
@@ -101,15 +101,14 @@ int    ft_print_base(unsigned int nbr, char *base, int basenb)
 	return (len);
 }
 
-int    ft_print_base_p(unsigned long nbr, char *base, int basenb)
+int	ft_print_base_p(unsigned long nbr, char *base, int basenb)
 {
-	char    temp;
-	int	len;
-	unsigned long 	div;
-	unsigned long 	mod;
+	unsigned long	div;
+	unsigned long	mod;
+	char			temp;
+	int				len;
 
 	len = 0;
-	
 	div = nbr / basenb;
 	mod = nbr % basenb;
 	if (!(div))

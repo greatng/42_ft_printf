@@ -6,7 +6,7 @@
 /*   By: pngamcha <pngamcha@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 14:39:35 by pngamcha          #+#    #+#             */
-/*   Updated: 2022/03/11 17:22:20 by pngamcha         ###   ########.fr       */
+/*   Updated: 2022/03/11 17:57:47 by pngamcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 static int	ft_eval_format(t_print *tab, const char *format, int i)
 {
-
 	if (format[i] == '%')
 		tab->tl += (write(1, "%", 1));
 	else if (format[i] == 'c')
@@ -32,7 +31,6 @@ static int	ft_eval_format(t_print *tab, const char *format, int i)
 		tab->tl += ft_print_x(tab, 'x');
 	else if (format[i] == 'X')
 		tab->tl += ft_print_x(tab, 'X');
-	else tab->error = 1;
 	return (1);
 }
 
@@ -41,27 +39,22 @@ static int	ft_finalize(t_print *tab, int ret)
 	int	tl;
 
 	tl = tab->tl;
-	if (tab->error)
-	{
-		free (tab);
-		return (-1);
-	} 
 	free (tab);
 	return (ret + tl);
 }
-static t_print	*ft_initialise_tab(t_print *tab)
+
+static	t_print	*ft_initialise_tab(t_print *tab)
 {
 	tab->tl = 0;
-	tab->error = 0;
 	return (tab);
 }
 
 int	ft_printf(const char *format, ...)
 {
-	int	i;
-	int	ret;
+	int		i;
+	int		ret;
 	t_print	*tab;
-	
+
 	tab = (t_print *)malloc(sizeof(t_print));
 	if (!tab)
 		return (0);
@@ -77,7 +70,7 @@ int	ft_printf(const char *format, ...)
 			ret += write(1, &format[i], 1);
 	}
 	va_end(tab->args);
-	ret = ft_finalize(tab , ret);
+	ret = ft_finalize(tab, ret);
 	return (ret);
 }
 /*

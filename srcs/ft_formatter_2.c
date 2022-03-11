@@ -6,7 +6,7 @@
 /*   By: pngamcha <pngamcha@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 00:38:22 by pngamcha          #+#    #+#             */
-/*   Updated: 2022/03/11 17:22:11 by pngamcha         ###   ########.fr       */
+/*   Updated: 2022/03/11 17:59:04 by pngamcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int	ft_print_p(t_print *tab)
 {
-	unsigned  long	p;
-	int	len;
+	unsigned long	p;
+	int				len;
 
 	p = va_arg(tab->args, unsigned long);
 	len = 0;
@@ -28,13 +28,13 @@ int	ft_print_p(t_print *tab)
 int	ft_print_x(t_print *tab, char u)
 {
 	long long	x;
-	int	len;
+	int			len;
 
 	x = va_arg(tab->args, long long);
 	len = 0;
 	if (u == 'x')
 		len += ft_print_base(x, "0123456789abcdef", 16);
-	else	
+	else
 		len += ft_print_base(x, "0123456789ABCDEF", 16);
 	return (len);
 }
