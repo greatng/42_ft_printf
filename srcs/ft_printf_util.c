@@ -6,7 +6,7 @@
 /*   By: pngamcha <pngamcha@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 22:10:23 by pngamcha          #+#    #+#             */
-/*   Updated: 2022/03/11 18:06:18 by pngamcha         ###   ########.fr       */
+/*   Updated: 2022/03/21 01:53:41 by pngamcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,6 @@ int	ft_print_base(unsigned int nbr, char *base, int basenb)
 	int				len;
 
 	len = 0;
-	if (nbr < 0)
-	{
-		len += write(1, "-", 1);
-		nbr = (-1) * nbr;
-	}
 	div = nbr / basenb;
 	mod = nbr % basenb;
 	if (!(div))
