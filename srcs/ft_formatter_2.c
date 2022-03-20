@@ -6,7 +6,7 @@
 /*   By: pngamcha <pngamcha@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 00:38:22 by pngamcha          #+#    #+#             */
-/*   Updated: 2022/03/11 17:59:04 by pngamcha         ###   ########.fr       */
+/*   Updated: 2022/03/21 00:33:27 by pngamcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ int	ft_print_x(t_print *tab, char u)
 
 	x = va_arg(tab->args, long long);
 	len = 0;
+	if (tab->sharp && x)
+	{
+		tab->sharp = 0;
+		if (u == 'x')
+			len += write(1, "0x", 2);
+		else 
+			len += write(1, "0X", 2);
+	}
 	if (u == 'x')
 		len += ft_print_base(x, "0123456789abcdef", 16);
 	else

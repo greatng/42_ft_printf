@@ -6,7 +6,7 @@
 /*   By: pngamcha <pngamcha@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 18:59:26 by pngamcha          #+#    #+#             */
-/*   Updated: 2022/03/11 18:01:33 by pngamcha         ###   ########.fr       */
+/*   Updated: 2022/03/21 00:28:09 by pngamcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,19 @@ int	ft_print_nb(t_print *tab)
 {
 	int		nb;
 	int		ret;
+	int		plus;
 	char	*s;
 
+	plus = 0;
 	nb = va_arg(tab->args, int);
+	if (tab->plus && nb >= 0)
+		plus = write(1, "+", 1);
+	if (tab->space && nb >= 0)
+		plus = write(1, " ", 1);
+	tab->plus = 0;
 	ft_putnbr_fd(nb, 1);
 	s = ft_itoa(nb);
-	ret = ft_strlen(s);
+	ret = ft_strlen(s) + plus;
 	free (s);
 	return (ret);
 }

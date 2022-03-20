@@ -6,15 +6,47 @@
 /*   By: pngamcha <pngamcha@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 14:39:35 by pngamcha          #+#    #+#             */
-/*   Updated: 2022/03/11 17:57:47 by pngamcha         ###   ########.fr       */
+/*   Updated: 2022/03/21 00:19:17 by pngamcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
+static int	ft_eval_format(t_print *tab, const char *format, int i);
+
+static int	ft_flag(t_print *tab, const char *format, int i)
+{
+	int	j;
+
+	j = i;
+	if (format[i] == '#')
+	{
+		tab->sharp = 1;
+		while (format[i] == '#' || format[i] == ' ')
+			i++;
+	}
+	else if (format[i] == '+')
+	{
+		tab->plus = 1;
+		while (format[i] == '+')
+			i++;
+	}
+	else if (format[i] == ' ')
+	{
+		tab->space = ' ';
+		while (format[i] == ' ')
+			i++;
+	}
+	ft_eval_format(tab, format, i);
+	return (i - j);
+}
+
 static int	ft_eval_format(t_print *tab, const char *format, int i)
 {
+	int	n;
+
+	n = 1;
 	if (format[i] == '%')
 		tab->tl += (write(1, "%", 1));
 	else if (format[i] == 'c')
@@ -31,7 +63,9 @@ static int	ft_eval_format(t_print *tab, const char *format, int i)
 		tab->tl += ft_print_x(tab, 'x');
 	else if (format[i] == 'X')
 		tab->tl += ft_print_x(tab, 'X');
-	return (1);
+	else
+		n += ft_flag(tab, format, i);
+	return (n);
 }
 
 static int	ft_finalize(t_print *tab, int ret)
@@ -45,13 +79,16 @@ static int	ft_finalize(t_print *tab, int ret)
 
 static	t_print	*ft_initialise_tab(t_print *tab)
 {
+	tab->i = 0;
 	tab->tl = 0;
+	tab->sharp = 0;
+	tab->plus = 0;
+	tab->space = 0;
 	return (tab);
 }
 
 int	ft_printf(const char *format, ...)
 {
-	int		i;
 	int		ret;
 	t_print	*tab;
 
@@ -60,14 +97,14 @@ int	ft_printf(const char *format, ...)
 		return (0);
 	ft_initialise_tab(tab);
 	va_start(tab->args, format);
-	i = -1;
 	ret = 0;
-	while (format[++i])
+	while (format[tab->i])
 	{
-		if (format[i] == '%')
-			i += ft_eval_format(tab, format, i + 1);
+		if (format[tab->i] == '%')
+			tab->i += ft_eval_format(tab, format, tab->i + 1);
 		else
-			ret += write(1, &format[i], 1);
+			ret += write(1, &format[tab->i], 1);
+		tab->i += 1;
 	}
 	va_end(tab->args);
 	ret = ft_finalize(tab, ret);
