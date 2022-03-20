@@ -6,7 +6,7 @@
 /*   By: pngamcha <pngamcha@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 14:45:49 by pngamcha          #+#    #+#             */
-/*   Updated: 2022/03/11 17:55:44 by pngamcha         ###   ########.fr       */
+/*   Updated: 2022/03/20 23:06:20 by pngamcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@
 typedef struct s_print
 {
 	va_list		args;
+	int			i;
 	int			tl;
+	int			sharp;
+	int			space;
+	int			plus;
 }	t_print;
 
 char	*ft_utoa(long long n);
