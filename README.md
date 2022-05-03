@@ -8,4 +8,4 @@ This library can handle the mandatory "cspdiuxX%" flags and the bonus "# +" flag
 
 **How to use**
 1. run `make` to compile the library
-2. Include the library while compiling your program
+2. Include the library `libftprintf.a` while compiling your program. Don't forget to include header.
